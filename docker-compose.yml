@@ -1,0 +1,12 @@
+version: '3'
+services:
+  eav-bundle-cli:
+    container_name: eav-test-cli
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      XDEBUG_MODE: 'coverage'
+    restart: 'no'
+    volumes:
+      - .:/var/www/html

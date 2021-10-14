@@ -1,0 +1,42 @@
+{
+    "name": "lotriss/eav-bundle",
+    "description": "Entity Attribute Value Bundle for symfony",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikołaj Bartoszko",
+            "email": "mikolaj.bartoszko@protonmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "symfony/config": "^5.0",
+        "symfony/console": "^5.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/dependency-injection": "^5.0",
+        "doctrine/orm": "^2.9",
+        "doctrine/annotations": "^1.13",
+        "doctrine/doctrine-bundle": "^2.4",
+        "doctrine/persistence": "^2.2",
+        "symfony/property-info": "^5.3",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/orm-pack": "^2.1"
+    },
+    "keywords": [],
+    "require-dev": {
+        "symfony/phpunit-bridge": "^5.0",
+        "symfony/browser-kit": "^5.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lotriss\\Eav\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lotriss\\Eav\\Tests\\": "tests/"
+        }
+    }
+}

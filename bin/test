@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html public/test-coverage
+
+while true; do
+    read -p "Do you wish to run grumphp? (y/N) " yn
+    case $yn in
+        [Yy]* ) vendor/bin/grumphp run; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
