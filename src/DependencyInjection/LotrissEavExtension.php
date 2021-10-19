@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\DependencyInjection;
 
+use Lotriss\Eav\Service\EavConfig;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Lotriss\Eav\Service\EavConfig;
 
 class LotrissEavExtension extends Extension
 {

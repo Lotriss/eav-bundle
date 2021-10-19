@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html public/test-coverage
+
+XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html build/test-coverage
 
 while true; do
     read -p "Do you wish to run grumphp? (y/N) " yn

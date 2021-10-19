@@ -1,24 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lotriss\Eav\Repository\EavAttributeTextRepository;
 
-/**
- * @ORM\Entity(repositoryClass=EavAttributeTextRepository::class)
- * @ORM\Table(
- *     indexes={
- *         @ORM\Index(name="text_attribute_id_idx", columns={"attribute_id"}),
- *         @ORM\Index(name="text_entity_id_idx", columns={"entity_id"})
- *     }
- * )
- */
+#[ORM\Entity(repositoryClass: EavAttributeTextRepository::class)]
+#[ORM\Table]
+#[
+    ORM\Index(columns: ['attribute_id'], name: 'text_attribute_id_idx'),
+    ORM\Index(columns: ['entity_id'], name: 'text_entity_id_idx'),
+]
 class EavAttributeText extends AbstractEavValue
 {
-    /**
-     * @ORM\Column(type="string", length=65535, nullable=true)
-     */
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $value;
 
     public function getValue(): ?string

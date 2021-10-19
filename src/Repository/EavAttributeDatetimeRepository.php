@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -7,8 +9,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Lotriss\Eav\Entity\EavAttributeDatetime;
 
 /**
- * @method null|EavAttributeDatetime find($id, $lockMode = null, $lockVersion = null)
- * @method null|EavAttributeDatetime findOneBy(array $criteria, array $orderBy = null)
+ * @method EavAttributeDatetime|null find($id, $lockMode = null, $lockVersion = null)
+ * @method EavAttributeDatetime|null findOneBy(array $criteria, array $orderBy = null)
  * @method EavAttributeDatetime[]    findAll()
  * @method EavAttributeDatetime[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */

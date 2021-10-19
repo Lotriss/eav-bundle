@@ -1,9 +1,13 @@
 <?php
 
-namespace Lotriss\Eav\Service;
+declare(strict_types=1);
+
+namespace Lotriss\Eav\Handler;
 
 use Lotriss\Eav\Entity\EavAttribute;
 use Lotriss\Eav\Entity\EavEntityInterface;
+use Lotriss\Eav\Service\EavConfig;
+use Lotriss\Eav\Service\EavHelper;
 use Lotriss\Eav\Service\Exception\AttributeValueRequiredException;
 use Lotriss\Eav\Service\Exception\ValueNotUniqueException;
 

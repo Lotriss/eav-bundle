@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Service;
 
 use Doctrine\ORM\Query\Expr\Join;
@@ -20,6 +22,13 @@ class EavQueryBuilder
         $this->eavHelper = $eavHelper;
     }
 
+    /**
+     * @param array<string, array> $searchParams
+     *
+     * @throws BadSearchAttributeException
+     * @throws Exception\UnknownEavTypeException
+     * @throws UnknownEavAttributeException
+     */
     public function getQuery(string $entityName, array $searchParams, QueryBuilder $qb): QueryBuilder
     {
         $qb->from($entityName, 'entity');
@@ -42,6 +51,11 @@ class EavQueryBuilder
         return $qb;
     }
 
+    /**
+     * @param array<string, string> $searchData
+     *
+     * @throws BadSearchAttributeException
+     */
     private function buildWhereConditions(EavAttribute $attribute, array $searchData, QueryBuilder $qb): void
     {
         if ('none' === $attribute->getSearchType()) {
@@ -73,6 +87,6 @@ class EavQueryBuilder
             $allowedSearchConditions = [];
         }
 
-        return in_array($searchCond, $allowedSearchConditions);
+        return in_array($searchCond, $allowedSearchConditions, true);
     }
 }

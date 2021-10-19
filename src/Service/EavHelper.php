@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -29,7 +31,7 @@ class EavHelper
         $this->entityManager = $entityManager;
     }
 
-    public function getEavEntityClassByType(string $type): string
+    public function getEavEntityClassByType(?string $type): string
     {
         if (!isset(static::EAV_TYPE_ENTITY_CLASS[$type])) {
             throw new UnknownEavTypeException(vsprintf('Unknown type [%s], probably there is a typo in attribute config', [$type]));

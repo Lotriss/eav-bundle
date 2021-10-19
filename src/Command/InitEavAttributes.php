@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Command;
 
 use Lotriss\Eav\Service\EavAttributeInstaller;

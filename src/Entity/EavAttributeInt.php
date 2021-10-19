@@ -1,25 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lotriss\Eav\Repository\EavAttributeIntRepository;
 
-/**
- * @ORM\Entity(repositoryClass=EavAttributeIntRepository::class)
- * @ORM\Table(
- *     indexes={
- *         @ORM\Index(name="int_attribute_id_idx", columns={"attribute_id"}),
- *         @ORM\Index(name="int_entity_id_idx", columns={"entity_id"}),
- *         @ORM\Index(name="int_value_idx", columns={"value"})
- *     }
- * )
- */
+#[ORM\Entity(repositoryClass: EavAttributeIntRepository::class)]
+#[ORM\Table]
+#[
+    ORM\Index(columns: ['attribute_id'], name: 'int_attribute_id_idx'),
+    ORM\Index(columns: ['entity_id'], name: 'int_entity_id_idx'),
+    ORM\Index(columns: ['value'], name: 'int_value_idx')
+]
 class EavAttributeInt extends AbstractEavValue
 {
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: Types::INTEGER, nullable: true)]
     private ?int $value;
 
     public function getValue(): ?int

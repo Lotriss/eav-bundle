@@ -3,3 +3,13 @@ doctrine:
     driver: 'pdo_sqlite'
     url: 'sqlite:///%kernel.project_dir%/var/test.db3'
     charset: UTF8
+  orm:
+    auto_generate_proxy_classes: true
+    naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+    auto_mapping: true
+    mappings:
+      LotrissEavBundle:
+        is_bundle: true
+        type: attribute
+        dir: 'Entity'
+        prefix: 'Lotriss\Eav\Entity'

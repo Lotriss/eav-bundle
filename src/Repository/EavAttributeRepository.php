@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -7,8 +9,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Lotriss\Eav\Entity\EavAttribute;
 
 /**
- * @method null|EavAttribute find($id, $lockMode = null, $lockVersion = null)
- * @method null|EavAttribute findOneBy(array $criteria, array $orderBy = null)
+ * @method EavAttribute|null find($id, $lockMode = null, $lockVersion = null)
+ * @method EavAttribute|null findOneBy(array $criteria, array $orderBy = null)
  * @method EavAttribute[]    findAll()
  * @method EavAttribute[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
@@ -31,8 +33,6 @@ class EavAttributeRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param string $entityName
-     *
      * @return EavAttribute[]
      */
     public function getAttributesByEntityName(string $entityName): array

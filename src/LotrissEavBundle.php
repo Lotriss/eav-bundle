@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav;
 
-use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Lotriss\Eav\DependencyInjection\LotrissEavExtension;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class LotrissEavBundle extends Bundle

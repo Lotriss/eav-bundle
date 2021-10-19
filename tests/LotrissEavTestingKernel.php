@@ -21,6 +21,8 @@ class LotrissEavTestingKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-
+        $confDir = $this->getProjectDir() . '/config/packages';
+        $loader->load($confDir . '/test/doctrine.yaml');
+        $loader->load($confDir . '/test/framework.yaml');
     }
 }

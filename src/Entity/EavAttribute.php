@@ -1,69 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Lotriss\Eav\Repository\EavAttributeRepository;
 
-/**
- * @ORM\Entity(repositoryClass=EavAttributeRepository::class)
- * @ORM\Table(
- *     uniqueConstraints={
- *         @ORM\UniqueConstraint(name="code_entity_name_uidx", columns={"code", "entity_name"})
- *     },
- *     indexes={
- *         @ORM\Index(name="code_entity_name_idx", columns={"code", "entity_name"}),
- *         @ORM\Index(name="type_idx", columns={"type"})
- *     }
- * )
- */
+#[ORM\Entity(repositoryClass: EavAttributeRepository::class)]
+#[ORM\Table]
+#[ORM\UniqueConstraint(name: 'code_entity_name_uidx', columns: ['code', 'entity_name'])]
+#[ORM\Index(columns: ['code', 'entity_name'], name: 'code_entity_name_idx'), Orm\Index(columns: ['type'], name: 'type_idx')]
 class EavAttribute
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id, ORM\Column(type: Types::INTEGER), ORM\GeneratedValue(strategy: 'IDENTITY')]
     private ?int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $code;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $label;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $type;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: Types::BOOLEAN)]
     private ?bool $isRequired;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: Types::BOOLEAN)]
     private ?bool $isUnique;
 
-    /**
-     * @ORM\Column(type="json", nullable=true)
-     */
+    #[ORM\Column(type: Types::JSON, nullable: true)]
     private ?array $availableOptions;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $searchType;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $entityName;
 
     public function getId(): ?int

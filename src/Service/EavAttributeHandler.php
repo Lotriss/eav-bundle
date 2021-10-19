@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Service;
 
 use Lotriss\Eav\Entity\EavAttribute;
@@ -66,9 +68,6 @@ class EavAttributeHandler
         bool $unique,
         EavAttribute $eavAttributeToUpdate
     ): void {
-        if ($type !== $eavAttributeToUpdate->getType()) {
-            //@TODO cast all values to new type
-        }
         $eavAttributeToUpdate
             ->setLabel($label)
             ->setType($type)

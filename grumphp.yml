@@ -1,0 +1,41 @@
+grumphp:
+  hide_circumvention_tip: true
+  tasks:
+    composer:
+      metadata:
+        priority: 20
+    git_blacklist:
+      keywords:
+        - "die\\("
+        - "exit\\("
+        - "var_dump\\("
+        - "dump\\("
+        - "console\\.log\\("
+        - "phpinfo\\("
+        - "print_r\\("
+        - "phpinfo"
+        - "die;"
+        - "exit;"
+      triggered_by: [ 'php', 'js', 'html', 'twig' ]
+      regexp_type: E
+      metadata:
+        priority: 20
+    phpcsfixer:
+      config: '.php-cs-fixer.dist.php'
+      metadata:
+        priority: 50
+    phplint:
+      metadata:
+        priority: 30
+    phpstan:
+      level: 8
+      memory_limit: "-1"
+      ignore_patterns: ['tests']
+      metadata:
+        priority: 40
+    securitychecker_roave:
+      metadata:
+        priority: 10
+    yamllint:
+      metadata:
+        priority: 20

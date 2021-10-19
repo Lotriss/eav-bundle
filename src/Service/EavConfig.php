@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Service;
 
 use Lotriss\Eav\Entity\EavAttribute;
@@ -9,6 +11,10 @@ use Lotriss\Eav\Service\Exception\UnknownEavAttributeException;
 class EavConfig
 {
     private array $eavConfigData;
+
+    /**
+     * @var array<string, array<string>|, EavAttribute>
+     */
     private array $eavLoadedData = [];
     private EavAttributeRepository $eavAttributeRepository;
 
@@ -21,8 +27,6 @@ class EavConfig
     }
 
     /**
-     * @param string $entityName
-     *
      * @return EavAttribute[]
      */
     public function getEavSettingsForEntity(string $entityName): array
@@ -42,12 +46,7 @@ class EavConfig
     {
         $eavEntityData = $this->getEavSettingsForEntity($entityName);
         if (!isset($eavEntityData[$code])) {
-            throw new UnknownEavAttributeException(
-                vsprintf(
-                    'Unknown attribute [%s] in entity [%s], probably there is a typo in attribute name.',
-                    [$code, $entityName]
-                )
-            );
+            throw new UnknownEavAttributeException(vsprintf('Unknown attribute [%s] in entity [%s], probably there is a typo in attribute name.', [$code, $entityName]));
         }
 
         return $eavEntityData[$code];

@@ -21,13 +21,19 @@
         "doctrine/persistence": "^2.2",
         "symfony/property-info": "^5.3",
         "symfony/framework-bundle": "^5.0",
-        "symfony/orm-pack": "^2.1"
+        "symfony/orm-pack": "^2.1",
+        "symfony/yaml": "^5.3"
     },
     "keywords": [],
     "require-dev": {
         "symfony/phpunit-bridge": "^5.0",
         "symfony/browser-kit": "^5.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "phpro/grumphp": "^1.5",
+        "phpmd/phpmd": "^2.10",
+        "phpstan/phpstan": "^0.12.99",
+        "friendsofphp/php-cs-fixer": "^3.2",
+        "grogy/php-parallel-lint": "^1.1"
     },
     "autoload": {
         "psr-4": {

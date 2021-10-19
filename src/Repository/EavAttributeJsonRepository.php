@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Lotriss\Eav\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -7,8 +9,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Lotriss\Eav\Entity\EavAttributeJson;
 
 /**
- * @method null|EavAttributeJson find($id, $lockMode = null, $lockVersion = null)
- * @method null|EavAttributeJson findOneBy(array $criteria, array $orderBy = null)
+ * @method EavAttributeJson|null find($id, $lockMode = null, $lockVersion = null)
+ * @method EavAttributeJson|null findOneBy(array $criteria, array $orderBy = null)
  * @method EavAttributeJson[]    findAll()
  * @method EavAttributeJson[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
